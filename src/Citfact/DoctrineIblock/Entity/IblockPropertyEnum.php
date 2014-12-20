@@ -47,14 +47,14 @@ class IblockPropertyEnum
      *
      * @ORM\Column(name="DEF", type="string", length=1, nullable=false)
      */
-    protected $def = 'N';
+    protected $def;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="SORT", type="integer", nullable=false)
      */
-    protected $sort = '500';
+    protected $sort;
 
     /**
      * @var string
@@ -69,6 +69,15 @@ class IblockPropertyEnum
      * @ORM\Column(name="TMP_ID", type="string", length=40, nullable=true)
      */
     protected $tmpId;
+
+    /**
+     * Construct
+     */
+    public function __construct()
+    {
+        $this->def = 'N';
+        $this->sort = 500;
+    }
 
     /**
      * @param string $def
