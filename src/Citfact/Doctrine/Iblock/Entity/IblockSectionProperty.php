@@ -9,20 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Citfact\DoctrineIblock\Entity;
+namespace Citfact\Doctrine\Iblock\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="b_iblock_element_iprop", indexes={@ORM\Index(name="ix_b_iblock_element_iprop_0", columns={"IPROP_ID"}), @ORM\Index(name="ix_b_iblock_element_iprop_1", columns={"IBLOCK_ID"})})
+ * @ORM\Table(name="b_iblock_section_property", indexes={@ORM\Index(name="ix_b_iblock_section_property_1", columns={"PROPERTY_ID"}), @ORM\Index(name="ix_b_iblock_section_property_2", columns={"SECTION_ID"})})
  * @ORM\Entity
  */
-class IblockElementIprop
+class IblockSectionProperty
 {
     /**
      * @var integer
      *
      * @ORM\Column(name="IBLOCK_ID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     protected $iblockId;
 
@@ -30,49 +32,26 @@ class IblockElementIprop
      * @var integer
      *
      * @ORM\Column(name="SECTION_ID", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     protected $sectionId;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="ELEMENT_ID", type="integer", nullable=false)
+     * @ORM\Column(name="PROPERTY_ID", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    protected $elementId;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="IPROP_ID", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-    protected $ipropId;
+    protected $propertyId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="VALUE", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="SMART_FILTER", type="string", length=1, nullable=true)
      */
-    protected $value;
-
-    /**
-     * @param int $elementId
-     */
-    public function setElementId($elementId)
-    {
-        $this->elementId = $elementId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getElementId()
-    {
-        return $this->elementId;
-    }
+    protected $smartFilter;
 
     /**
      * @param int $iblockId
@@ -91,19 +70,19 @@ class IblockElementIprop
     }
 
     /**
-     * @param int $ipropId
+     * @param int $propertyId
      */
-    public function setIpropId($ipropId)
+    public function setPropertyId($propertyId)
     {
-        $this->ipropId = $ipropId;
+        $this->propertyId = $propertyId;
     }
 
     /**
      * @return int
      */
-    public function getIpropId()
+    public function getPropertyId()
     {
-        return $this->ipropId;
+        return $this->propertyId;
     }
 
     /**
@@ -123,18 +102,18 @@ class IblockElementIprop
     }
 
     /**
-     * @param string $value
+     * @param string $smartFilter
      */
-    public function setValue($value)
+    public function setSmartFilter($smartFilter)
     {
-        $this->value = $value;
+        $this->smartFilter = $smartFilter;
     }
 
     /**
      * @return string
      */
-    public function getValue()
+    public function getSmartFilter()
     {
-        return $this->value;
+        return $this->smartFilter;
     }
 }

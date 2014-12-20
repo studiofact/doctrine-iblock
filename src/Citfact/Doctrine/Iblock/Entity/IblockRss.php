@@ -9,13 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Citfact\DoctrineIblock\Entity;
+namespace Citfact\Doctrine\Iblock\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * BIblockRss
- *
  * @ORM\Table(name="b_iblock_rss")
  * @ORM\Entity
  */

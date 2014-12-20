@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Citfact\DoctrineIblock\Entity;
+namespace Citfact\Doctrine\Iblock\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="b_iblock_section_iprop", indexes={@ORM\Index(name="ix_b_iblock_section_iprop_0", columns={"IPROP_ID"}), @ORM\Index(name="ix_b_iblock_section_iprop_1", columns={"IBLOCK_ID"})})
+ * @ORM\Table(name="b_iblock_element_iprop", indexes={@ORM\Index(name="ix_b_iblock_element_iprop_0", columns={"IPROP_ID"}), @ORM\Index(name="ix_b_iblock_element_iprop_1", columns={"IBLOCK_ID"})})
  * @ORM\Entity
  */
-class IblockSectionIprop
+class IblockElementIprop
 {
     /**
      * @var integer
@@ -30,10 +30,17 @@ class IblockSectionIprop
      * @var integer
      *
      * @ORM\Column(name="SECTION_ID", type="integer", nullable=false)
+     */
+    protected $sectionId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ELEMENT_ID", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    protected $sectionId;
+    protected $elementId;
 
     /**
      * @var integer
@@ -50,6 +57,22 @@ class IblockSectionIprop
      * @ORM\Column(name="VALUE", type="text", length=65535, nullable=false)
      */
     protected $value;
+
+    /**
+     * @param int $elementId
+     */
+    public function setElementId($elementId)
+    {
+        $this->elementId = $elementId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getElementId()
+    {
+        return $this->elementId;
+    }
 
     /**
      * @param int $iblockId

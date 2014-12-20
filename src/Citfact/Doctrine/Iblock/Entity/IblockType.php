@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Citfact\DoctrineIblock\Entity;
+namespace Citfact\Doctrine\Iblock\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="b_iblock_type")
  * @ORM\Entity
  */
-class BIblockType
+class IblockType
 {
     /**
      * @var string

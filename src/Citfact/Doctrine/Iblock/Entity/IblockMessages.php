@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Citfact\DoctrineIblock\Entity;
+namespace Citfact\Doctrine\Iblock\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="b_iblock_iblock_iprop", indexes={@ORM\Index(name="ix_b_iblock_iblock_iprop_0", columns={"IPROP_ID"})})
+ * @ORM\Table(name="b_iblock_messages")
  * @ORM\Entity
  */
-class IblockIblockIprop
+class IblockMessages
 {
     /**
      * @var integer
@@ -29,20 +29,20 @@ class IblockIblockIprop
     protected $iblockId;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="IPROP_ID", type="integer", nullable=false)
+     * @ORM\Column(name="MESSAGE_ID", type="string", length=50, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    protected $ipropId;
+    protected $messageId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="VALUE", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="MESSAGE_TEXT", type="string", length=255, nullable=true)
      */
-    protected $value;
+    protected $messageText;
 
     /**
      * @param int $iblockId
@@ -61,34 +61,34 @@ class IblockIblockIprop
     }
 
     /**
-     * @param int $ipropId
+     * @param string $messageId
      */
-    public function setIpropId($ipropId)
+    public function setMessageId($messageId)
     {
-        $this->ipropId = $ipropId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIpropId()
-    {
-        return $this->ipropId;
-    }
-
-    /**
-     * @param string $value
-     */
-    public function setValue($value)
-    {
-        $this->value = $value;
+        $this->messageId = $messageId;
     }
 
     /**
      * @return string
      */
-    public function getValue()
+    public function getMessageId()
     {
-        return $this->value;
+        return $this->messageId;
+    }
+
+    /**
+     * @param string $messageText
+     */
+    public function setMessageText($messageText)
+    {
+        $this->messageText = $messageText;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessageText()
+    {
+        return $this->messageText;
     }
 }

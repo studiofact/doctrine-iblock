@@ -9,22 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Citfact\DoctrineIblock\Entity;
+namespace Citfact\Doctrine\Iblock\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="b_iblock_section_property", indexes={@ORM\Index(name="ix_b_iblock_section_property_1", columns={"PROPERTY_ID"}), @ORM\Index(name="ix_b_iblock_section_property_2", columns={"SECTION_ID"})})
+ * @ORM\Table(name="b_iblock_section_right", indexes={@ORM\Index(name="ix_b_iblock_section_right_1", columns={"SECTION_ID", "IBLOCK_ID"}), @ORM\Index(name="ix_b_iblock_section_right_2", columns={"IBLOCK_ID", "RIGHT_ID"})})
  * @ORM\Entity
  */
-class IblockSectionProperty
+class IblockSectionRight
 {
     /**
      * @var integer
      *
      * @ORM\Column(name="IBLOCK_ID", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
      */
     protected $iblockId;
 
@@ -40,18 +38,18 @@ class IblockSectionProperty
     /**
      * @var integer
      *
-     * @ORM\Column(name="PROPERTY_ID", type="integer", nullable=false)
+     * @ORM\Column(name="RIGHT_ID", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    protected $propertyId;
+    protected $rightId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="SMART_FILTER", type="string", length=1, nullable=true)
+     * @ORM\Column(name="IS_INHERITED", type="string", length=1, nullable=false)
      */
-    protected $smartFilter;
+    protected $isInherited;
 
     /**
      * @param int $iblockId
@@ -70,19 +68,35 @@ class IblockSectionProperty
     }
 
     /**
-     * @param int $propertyId
+     * @param string $isInherited
      */
-    public function setPropertyId($propertyId)
+    public function setIsInherited($isInherited)
     {
-        $this->propertyId = $propertyId;
+        $this->isInherited = $isInherited;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIsInherited()
+    {
+        return $this->isInherited;
+    }
+
+    /**
+     * @param int $rightId
+     */
+    public function setRightId($rightId)
+    {
+        $this->rightId = $rightId;
     }
 
     /**
      * @return int
      */
-    public function getPropertyId()
+    public function getRightId()
     {
-        return $this->propertyId;
+        return $this->rightId;
     }
 
     /**
@@ -99,21 +113,5 @@ class IblockSectionProperty
     public function getSectionId()
     {
         return $this->sectionId;
-    }
-
-    /**
-     * @param string $smartFilter
-     */
-    public function setSmartFilter($smartFilter)
-    {
-        $this->smartFilter = $smartFilter;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSmartFilter()
-    {
-        return $this->smartFilter;
     }
 }

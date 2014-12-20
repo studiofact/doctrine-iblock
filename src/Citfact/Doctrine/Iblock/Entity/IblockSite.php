@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Citfact\DoctrineIblock\Entity;
+namespace Citfact\Doctrine\Iblock\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="b_iblock_sequence")
+ * @ORM\Table(name="b_iblock_site")
  * @ORM\Entity
  */
-class IblockSequence
+class IblockSite
 {
     /**
      * @var integer
@@ -31,34 +31,11 @@ class IblockSequence
     /**
      * @var string
      *
-     * @ORM\Column(name="CODE", type="string", length=50, nullable=false)
+     * @ORM\Column(name="SITE_ID", type="string", length=2, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    protected $code;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="SEQ_VALUE", type="integer", nullable=true)
-     */
-    protected $seqValue;
-
-    /**
-     * @param string $code
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
+    protected $siteId;
 
     /**
      * @param int $iblockId
@@ -77,18 +54,18 @@ class IblockSequence
     }
 
     /**
-     * @param int $seqValue
+     * @param string $siteId
      */
-    public function setSeqValue($seqValue)
+    public function setSiteId($siteId)
     {
-        $this->seqValue = $seqValue;
+        $this->siteId = $siteId;
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getSeqValue()
+    public function getSiteId()
     {
-        return $this->seqValue;
+        return $this->siteId;
     }
 }

@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Citfact\DoctrineIblock\Entity;
+namespace Citfact\Doctrine\Iblock\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="b_iblock_section_right", indexes={@ORM\Index(name="ix_b_iblock_section_right_1", columns={"SECTION_ID", "IBLOCK_ID"}), @ORM\Index(name="ix_b_iblock_section_right_2", columns={"IBLOCK_ID", "RIGHT_ID"})})
+ * @ORM\Table(name="b_iblock_section_iprop", indexes={@ORM\Index(name="ix_b_iblock_section_iprop_0", columns={"IPROP_ID"}), @ORM\Index(name="ix_b_iblock_section_iprop_1", columns={"IBLOCK_ID"})})
  * @ORM\Entity
  */
-class IblockSectionRight
+class IblockSectionIprop
 {
     /**
      * @var integer
@@ -38,18 +38,18 @@ class IblockSectionRight
     /**
      * @var integer
      *
-     * @ORM\Column(name="RIGHT_ID", type="integer", nullable=false)
+     * @ORM\Column(name="IPROP_ID", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    protected $rightId;
+    protected $ipropId;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="IS_INHERITED", type="string", length=1, nullable=false)
+     * @ORM\Column(name="VALUE", type="text", length=65535, nullable=false)
      */
-    protected $isInherited;
+    protected $value;
 
     /**
      * @param int $iblockId
@@ -68,35 +68,19 @@ class IblockSectionRight
     }
 
     /**
-     * @param string $isInherited
+     * @param int $ipropId
      */
-    public function setIsInherited($isInherited)
+    public function setIpropId($ipropId)
     {
-        $this->isInherited = $isInherited;
-    }
-
-    /**
-     * @return string
-     */
-    public function getIsInherited()
-    {
-        return $this->isInherited;
-    }
-
-    /**
-     * @param int $rightId
-     */
-    public function setRightId($rightId)
-    {
-        $this->rightId = $rightId;
+        $this->ipropId = $ipropId;
     }
 
     /**
      * @return int
      */
-    public function getRightId()
+    public function getIpropId()
     {
-        return $this->rightId;
+        return $this->ipropId;
     }
 
     /**
@@ -113,5 +97,21 @@ class IblockSectionRight
     public function getSectionId()
     {
         return $this->sectionId;
+    }
+
+    /**
+     * @param string $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
     }
 }
