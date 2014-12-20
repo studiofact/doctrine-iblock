@@ -33,7 +33,7 @@ class Iblock
      *
      * @ORM\Column(name="TIMESTAMP_X", type="datetime", nullable=false)
      */
-    protected $timestampX = 'CURRENT_TIMESTAMP';
+    protected $timestampX;
 
     /**
      * @var string
