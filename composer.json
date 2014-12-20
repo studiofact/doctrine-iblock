@@ -1,0 +1,21 @@
+{
+  "name": "citfact/doctrine-iblock",
+  "description": "1C-Bitrix - Doctrine 2 iblock integration",
+  "keywords": ["1C-Bitrix", "Doctrine 2", "iblock"],
+  "homepage": "https://github.com/studiofact/doctrine-iblock",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kulichkin Denis",
+      "email": "onexhovia@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "doctrine/orm": "2.4.*",
+    "symfony/yaml": "2.*"
+  },
+  "autoload": {
+    "psr-0": { "": "src/" }
+  }
+}
